@@ -4,7 +4,7 @@ import org.springframework.http.HttpStatus;
 
 public enum UserServiceErrorCode implements ErrorCode{
 
-    USER_NOT_EXIST("User doesn't exist in database", HttpStatus.BAD_REQUEST);
+    USER_NOT_EXIST("User doesn't exist in database", HttpStatus.NOT_FOUND);
 
     private final int number = ordinal() + 1;
 

@@ -34,6 +34,9 @@ public class GdInternshipSpringAppApplication implements CommandLineRunner {
 		Pic pic = createPic();
 		post.setPics(new HashSet<>(Collections.singleton(pic)));
 		pic.setPost(post);
+		Comment comment = createComment();
+		comment.setPost(post);
+		post.setComments(new HashSet<>(Collections.singleton(comment)));
 
 		Topic topic = createTopic();
 		Tag tag = createTag();
@@ -54,6 +57,8 @@ public class GdInternshipSpringAppApplication implements CommandLineRunner {
 		post.setUser(user);
 		topic.setUser(user);
 		user.setTopics(new HashSet<>(Collections.singleton(topic)));
+		user.setComments(new HashSet<>(Collections.singleton(comment)));
+		comment.setUser(user);
 		UserDto userDto = converter.toUserDto(user);
 		service.createUser(userDto);
 	}
@@ -104,5 +109,11 @@ public class GdInternshipSpringAppApplication implements CommandLineRunner {
 		post.setMessage("Help me to identify sharpening stone from ebay");
 		post.setDate(LocalDate.now());
 		return post;
+	}
+
+	private Comment createComment() {
+		Comment comment = new Comment();
+		comment.setName("First comment");
+		return comment;
 	}
 }
