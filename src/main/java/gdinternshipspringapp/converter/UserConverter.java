@@ -1,4 +1,4 @@
-package gdinternshipspringapp.utils;
+package gdinternshipspringapp.converter;
 
 import gdinternshipspringapp.model.dto.UserDto;
 import gdinternshipspringapp.model.entity.User;

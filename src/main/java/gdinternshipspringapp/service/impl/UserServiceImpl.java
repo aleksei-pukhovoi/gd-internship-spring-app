@@ -9,7 +9,7 @@ import gdinternshipspringapp.model.dto.*;
 import gdinternshipspringapp.model.entity.*;
 import gdinternshipspringapp.repository.*;
 import gdinternshipspringapp.service.UserService;
-import gdinternshipspringapp.utils.UserConverter;
+import gdinternshipspringapp.converter.UserConverter;
 
 import java.util.*;
 
@@ -103,7 +103,22 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUserById(Long id) {
-        userRepository.deleteById(id);
+        User loadUser = userRepository.findById(id)
+                .orElseThrow(() -> new ServiceException(USER_NOT_EXIST));
+        loadUser.getComments().forEach(commentRepository::delete);
+        loadUser.getPosts().forEach(post -> {
+            post.getPics().forEach(picRepository::delete);
+            postRepository.delete(post);
+        });
+        loadUser.getTopics().forEach(topic -> {
+            Forum forum = topic.getForum();
+            Section section = forum.getSection();
+            forumRepository.delete(forum);
+            sectionRepository.delete(section);
+            topic.getTags().forEach(tagRepository::delete);
+            topicRepository.delete(topic);
+        });
+        userRepository.delete(loadUser);
     }
 
 }

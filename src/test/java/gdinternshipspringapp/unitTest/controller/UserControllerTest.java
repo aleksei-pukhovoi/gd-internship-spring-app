@@ -1,6 +1,7 @@
-package gdinternshipspringapp.controller;
+package gdinternshipspringapp.unitTest.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import gdinternshipspringapp.controller.UserController;
 import gdinternshipspringapp.exception.ExceptionHandlerAdvice;
 import gdinternshipspringapp.exception.ServiceException;
 import gdinternshipspringapp.model.dto.UserDto;

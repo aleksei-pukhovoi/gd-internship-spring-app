@@ -1,10 +1,10 @@
-package gdinternshipspringapp.utils.impl;
+package gdinternshipspringapp.converter.impl;
 
+import gdinternshipspringapp.converter.UserConverter;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 import gdinternshipspringapp.model.dto.*;
 import gdinternshipspringapp.model.entity.*;
-import gdinternshipspringapp.utils.UserConverter;
 
 import java.util.List;
 import java.util.Set;

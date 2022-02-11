@@ -1,8 +1,9 @@
-package gdinternshipspringapp.utils;
+package gdinternshipspringapp.unitTest.utils;
 
 import gdinternshipspringapp.model.dto.*;
 import gdinternshipspringapp.model.entity.*;
-import gdinternshipspringapp.utils.impl.UserConverterImpl;
+import gdinternshipspringapp.converter.UserConverter;
+import gdinternshipspringapp.converter.impl.UserConverterImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

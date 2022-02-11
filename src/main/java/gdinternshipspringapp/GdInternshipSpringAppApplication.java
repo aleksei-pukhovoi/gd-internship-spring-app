@@ -1,9 +1,10 @@
 package gdinternshipspringapp;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import gdinternshipspringapp.model.dto.UserDto;
 import gdinternshipspringapp.model.entity.*;
 import gdinternshipspringapp.service.UserService;
-import gdinternshipspringapp.utils.UserConverter;
+import gdinternshipspringapp.converter.UserConverter;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -60,7 +61,9 @@ public class GdInternshipSpringAppApplication implements CommandLineRunner {
 		user.setComments(new HashSet<>(Collections.singleton(comment)));
 		comment.setUser(user);
 		UserDto userDto = converter.toUserDto(user);
-		service.createUser(userDto);
+
+		//disable saving the entity to the database to run integration tests correctly
+//		service.createUser(userDto);
 	}
 
 	private User createNewUser() {

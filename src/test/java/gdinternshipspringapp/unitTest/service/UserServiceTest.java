@@ -1,18 +1,20 @@
-package gdinternshipspringapp.service;
+package gdinternshipspringapp.unitTest.service;
 
+import gdinternshipspringapp.converter.UserConverter;
 import gdinternshipspringapp.model.dto.UserDto;
 import gdinternshipspringapp.model.entity.Post;
 import gdinternshipspringapp.model.entity.Topic;
 import gdinternshipspringapp.model.entity.User;
 import gdinternshipspringapp.repository.*;
+import gdinternshipspringapp.service.UserService;
 import gdinternshipspringapp.service.impl.UserServiceImpl;
-import gdinternshipspringapp.utils.UserConverter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.io.IOException;
 import java.util.Collections;
 import java.util.Optional;
 
@@ -23,7 +25,7 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class UserServiceTest {
 
-    private UserServiceImpl service;
+    private UserService service;
 
     @Mock
     private UserRepository userRepository;
@@ -57,8 +59,8 @@ class UserServiceTest {
     private User user;
 
     @BeforeEach
-    public void setUp() {
-        service = Mockito.spy(new UserServiceImpl(userRepository,topicRepository, tagRepository,
+    public void setUp(){
+        service = spy(new UserServiceImpl(userRepository,topicRepository, tagRepository,
                 sectionRepository, postRepository, picRepository, forumRepository, commentRepository,converter));
         userDto = new UserDto();
         user = new User();
