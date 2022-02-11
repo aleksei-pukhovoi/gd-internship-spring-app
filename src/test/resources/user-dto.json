@@ -1,0 +1,39 @@
+{
+  "id" : null,
+  "name" : "Ivan",
+  "email" : "ivan@gmail.com",
+  "login" : "iv",
+  "password" : "asdf",
+  "topics" : [ {
+    "id" : null,
+    "name" : "Identify stone",
+    "message" : null,
+    "forum" : {
+      "id" : null,
+      "name" : "Sharpening of cutting tool",
+      "section" : {
+        "id" : null,
+        "name" : "Cold steel and projectile weapons"
+      }
+    },
+    "tags" : [ {
+      "id" : null,
+      "name" : "Washita"
+    } ]
+  } ],
+  "posts" : [ {
+    "id" : null,
+    "message" : "Help me to identify sharpening stone from ebay",
+    "date" : "2022-02-10",
+    "pics" : [ {
+      "id" : null,
+      "caption" : "Washita oil stone",
+      "imageLink" : "http://zatochiklinok.ru/wp-content/gallery/washita/0023-lw.JPG"
+    } ]
+  } ],
+  "comments" : [ {
+    "id" : null,
+    "name" : "First comment"
+  } ],
+  "role" : "USER"
+}
