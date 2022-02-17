@@ -61,9 +61,7 @@ public class GdInternshipSpringAppApplication implements CommandLineRunner {
 		user.setComments(new HashSet<>(Collections.singleton(comment)));
 		comment.setUser(user);
 		UserDto userDto = converter.toUserDto(user);
-
-		//disable saving the entity to the database to run integration tests correctly
-//		service.createUser(userDto);
+		service.createUser(userDto);
 	}
 
 	private User createNewUser() {
